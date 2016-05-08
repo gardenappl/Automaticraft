@@ -1,0 +1,16 @@
+[
+{
+  "modid": "automaticraft",
+  "name": "Automaticraft",
+  "description": "This mod adds Conveyor Belts to Minecraft! Move items and mobs all over the place!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["goldenapple"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

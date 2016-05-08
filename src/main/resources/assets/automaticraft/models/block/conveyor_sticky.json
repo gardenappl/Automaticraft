@@ -1,0 +1,18 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+	"ambientocclusion": false,
+    "textures": {
+        "particle": "automaticraft:blocks/conveyor_sticky_noanim",
+        "texture": "automaticraft:blocks/conveyor_sticky"
+    },
+    "elements": [
+        {
+            "from": [ 2.0, 0.0, 2.0 ],
+            "to": [ 14.0, 16.0, 2.0 ],
+            "faces": {
+                "north": { "texture": "#texture", "uv": [ 2.0, 0.0, 14.0, 16.0 ] },
+                "south": { "texture": "#texture", "uv": [ 2.0, 0.0, 14.0, 16.0 ] }
+            }
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "automaticraft:detector",
+        "textures": {
+            "top": "blocks/comparator_off",
+            "torch": "blocks/redstone_torch_off",
+            "lens": "blocks/glass_blue"
+        }
+    },
+    "variants": {
+        "normal": [{}],
+        "inventory": [{}],
+        "facing": {
+            "north": {},
+            "south": {"y": 180},
+            "west": {"y": 270},
+            "east": {"y": 90}
+        }
+    }
+}

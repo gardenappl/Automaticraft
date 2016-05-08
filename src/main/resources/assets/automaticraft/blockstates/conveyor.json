@@ -1,0 +1,24 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "texture": "automaticraft:blocks/conveyor",
+            "texture_noanim": "automaticraft:blocks/conveyor_noanim"
+        }
+    },
+    "variants": {
+        "normal": [{}],
+        "inventory": [{}],
+        "facing": {
+            "north": {},
+            "south": {"y": 180},
+            "west": {"y": 270},
+            "east": {"y": 90}
+        },
+        "slope": {
+            "none": { "model": "automaticraft:conveyor" },
+            "up": { "model": "automaticraft:conveyor_up" },
+            "down": { "model": "automaticraft:conveyor_down" }
+        }
+    }
+}

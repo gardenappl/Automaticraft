@@ -1,0 +1,29 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "automaticraft:conveyor",
+        "textures": {
+            "texture": "automaticraft:blocks/conveyor_detector_b",
+            "texture_noanim": "automaticraft:blocks/conveyor_detector_b_noanim"
+        }
+    },
+    "variants": {
+        "normal": [{}],
+        "inventory": [{}],
+        "facing": {
+            "north": {},
+            "south": {"y": 180},
+            "west": {"y": 270},
+            "east": {"y": 90}
+        },
+        "powered": {
+            "false": {},
+            "true": {
+                "textures": {
+                    "texture": "automaticraft:blocks/conveyor_detector_b_on",
+                    "texture_noanim": "automaticraft:blocks/conveyor_detector_b_on_noanim"
+                }
+            }
+        }
+    }
+}

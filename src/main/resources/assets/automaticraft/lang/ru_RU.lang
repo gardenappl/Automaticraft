@@ -1,0 +1,24 @@
+#Да, перевод у меня не очень. :Р Если кто-то хочет что-то исправить, то не стесняйтесь и делайте pull request.
+tile.automaticraft:conveyor.name=Конвейерная лента
+tile.automaticraft:conveyor_redstone.name=Лента-переключатель
+tile.automaticraft:conveyor_redstone_on.name=Лента-переключатель
+tile.automaticraft:conveyor_sticky.name=Липкая лента
+tile.automaticraft:conveyor_detector.name=Липкая лента
+tile.automaticraft:conveyor_detector.name=Липкая лента
+tile.automaticraft:conveyor_detector.name=Липкая лента
+tile.automaticraft:conveyor_detector.name=Липкая лента
+
+item.automaticraft:debug.name=Меч абсолютного дебаггинга
+item.automaticraft:gear.name=Шестерня
+
+automaticraft.debug.desc.1=Показывает информацию для разработчиков
+automaticraft.detector.precise.desc.1=Сравнивает NBT данные
+automaticraft.detector.fuzzy.desc.1=Игнорирует метаданные
+automaticraft.detector.ore.desc.1=Сравнивает с помощью Ore Dictionary
+
+automaticraft.conveyor_detector.remove_filter=Фильтр снят
+automaticraft.conveyor_detector.set_filter=Фильтр поставлен: %s
+automaticraft.conveyor_detector.filter=Текущий фильтр: %s
+
+automaticraft.config.dump_all_ores=Выписать все руды в консоль
+automaticraft.config.dump_all_ores.tooltip=Нужно ли выписывать все руды из Forge OreDictionary в консоль при запуске игры?
