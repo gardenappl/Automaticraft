@@ -20,7 +20,7 @@ public class ModRecipes {
                 "sGs", 'i', "ingotIron", 'G', new ItemStack(ModItems.material, 1, Metadata.Material.GEAR), 's', "stickWood"));
 
         //Redstone Belt
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.conveyor_redstone, 4),
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.conveyor_redstone, 1),
                 "ggg",
                 "rGr", 'g', "ingotGold", 'r', "dustRedstone", 'G', new ItemStack(ModItems.material, 1, Metadata.Material.GEAR)));
 
