@@ -67,17 +67,4 @@ public class TileEntityConveyorDetector extends TileEntity{
     public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {
         return oldState.getBlock() != newSate.getBlock();
     }
-
-//    @Override
-//    public Packet<?> getDescriptionPacket() {
-//        if(hasFilter())
-//            return new SPacketUpdateTileEntity(getPos(), 1, filterStack.serializeNBT());
-//        else
-//            return null;
-//    }
-//
-//    @Override
-//    public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
-//        filterStack = ItemStack.loadItemStackFromNBT(packet.getNbtCompound());
-//    }
 }
