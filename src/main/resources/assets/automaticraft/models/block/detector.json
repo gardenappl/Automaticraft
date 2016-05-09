@@ -5,7 +5,8 @@
         "particle": "blocks/blocks/comparator_on",
         "0": "blocks/stone_slab_top",
         "1": "#top",
-        "2": "#torch"
+        "2": "#torch",
+        "3": "#lens"
     },
     "elements": [
         {
