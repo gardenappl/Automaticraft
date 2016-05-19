@@ -1,6 +1,5 @@
 tile.automaticraft:conveyor.name=Conveyor Belt
-tile.automaticraft:conveyor_redstone.name=Redstone Belt
-tile.automaticraft:conveyor_redstone_on.name=Redstone Belt
+tile.automaticraft:conveyor_redstone.name=Switch Belt
 tile.automaticraft:conveyor_sticky.name=Sticky Belt
 tile.automaticraft:conveyor_detector.name=Detector Belt
 tile.automaticraft:conveyor_detector_r.name=Precise Detector Belt

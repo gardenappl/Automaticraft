@@ -1,0 +1,46 @@
+{
+    "ambientocclusion": false,
+    "textures": {
+        "particle": "blocks/repeater_off",
+        "slab": "blocks/stone_slab_top",
+        "top": "blocks/repeater_off",
+        "torch": "blocks/redstone_torch_off",
+        "lens": "blocks/glass"
+    },
+    "elements": [
+        {
+            "from": [ 0.0, 0.0, 0.0 ], 
+            "to": [ 16.0, 2.0, 16.0 ], 
+            "faces": {
+                "north": { "texture": "#slab", "uv": [ 0.0, 14.0, 16.0, 16.0 ], "cullface": "north" },
+                "east": { "texture": "#slab", "uv": [ 0.0, 14.0, 16.0, 16.0 ], "cullface": "east" },
+                "south": { "texture": "#slab", "uv": [ 0.0, 14.0, 16.0, 16.0 ], "cullface": "south" },
+                "west": { "texture": "#slab", "uv": [ 0.0, 14.0, 16.0, 16.0 ], "cullface": "west" },
+                "up": { "texture": "#top", "uv": [ 0.0, 0.0, 16.0, 16.0 ] },
+                "down": { "texture": "#slab", "uv": [ 0.0, 0.0, 16.0, 16.0 ], "cullface": "down" }
+            }
+        },
+        {
+            "from": [ 7.0, 7.0, 6.0 ],
+            "to": [ 9.0, 7.0, 8.0 ],
+            "faces": {
+                "north": { "texture": "#torch", "uv": [ 7.0, 6.0, 9.0, 11.0 ] },
+                "east": { "texture": "#torch", "uv": [ 7.0, 6.0, 9.0, 11.0 ] },
+                "south": { "texture": "#torch", "uv": [ 7.0, 6.0, 9.0, 11.0 ] },
+                "west": { "texture": "#torch", "uv": [ 7.0, 6.0, 9.0, 11.0 ] },
+                "up": { "texture": "#torch", "uv": [ 7.0, 6.0, 9.0, 8.0 ] }
+            }
+        },
+        {
+            "from": [ 6.0, 2.0, 1.0 ], 
+            "to": [ 10.0, 6.0, 2.0 ], 
+            "faces": {
+                "north": { "texture": "#lens", "uv": [ 6.0, 5.0, 10.0, 9.0 ] },
+                "east": { "texture": "#lens", "uv": [ 0.0, 5.0, 0.0, 9.0 ] },
+                "south": { "texture": "#lens", "uv": [ 6.0, 5.0, 10.0, 9.0 ] },
+                "west": { "texture": "#lens", "uv": [ 15.0, 11.0, 15.0, 15.0 ] },
+                "up": { "texture": "#lens", "uv": [ 5.0, 0.0, 9.0, 0.0 ] }
+            }
+        }
+    ]
+}

@@ -1,16 +1,17 @@
 {
     "forge_marker": 1,
     "defaults": {
-        "model": "automaticraft:detector",
-        "textures": {
-            "top": "blocks/comparator_off",
-            "torch": "blocks/redstone_torch_off",
-            "lens": "blocks/glass_blue"
-        }
+        "model": "automaticraft:detector_off"
     },
     "variants": {
         "normal": [{}],
         "inventory": [{}],
+        "powered": {
+            "true": {
+                "model": "automaticraft:detector_on"
+            },
+            "false": {}
+        },
         "facing": {
             "north": {},
             "south": {"y": 180},

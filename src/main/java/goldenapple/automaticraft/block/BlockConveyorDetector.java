@@ -11,14 +11,15 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.List;
 import java.util.Locale;
@@ -35,19 +36,13 @@ public class BlockConveyorDetector extends BlockConveyor implements ITileEntityP
     }
 
     @Override
-    protected void register(String name) {
-        super.register(name);
-        GameRegistry.registerTileEntity(TileEntityConveyorDetector.class, name);
-    }
-
-    @Override
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING, POWERED);
     }
 
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileEntityConveyorDetector(filter);
+        return new TileEntityConveyorDetector(filter, FULL_BLOCK_AABB);
     }
 
     private TileEntityConveyorDetector getTileEntity(IBlockAccess world, BlockPos pos){
@@ -130,14 +125,16 @@ public class BlockConveyorDetector extends BlockConveyor implements ITileEntityP
 
     private void updatePoweredState(World world, BlockPos pos, IBlockState state){
         if(!world.isRemote) {
-            int count = findMatchingItems(world, pos);
+            int count = getTileEntity(world, pos).findMatchingItems(world);
             boolean powered = state.getValue(POWERED);
             getTileEntity(world, pos).count = count;
             if (count > 0 && !powered) {
                 world.setBlockState(pos, state.withProperty(BlockConveyorDetector.POWERED, true), 1 | 2);
+                world.playSound(null, pos, SoundEvents.block_wood_pressplate_click_on, SoundCategory.BLOCKS, 0.3F, 0.8F);
                 world.notifyNeighborsOfStateExcept(pos.down(), this, EnumFacing.UP);
             } else if (count == 0 && powered) {
                 world.setBlockState(pos, state.withProperty(BlockConveyorDetector.POWERED, false), 1 | 2);
+                world.playSound(null, pos, SoundEvents.block_wood_pressplate_click_off, SoundCategory.BLOCKS, 0.3F, 0.7F);
                 world.notifyNeighborsOfStateExcept(pos.down(), this, EnumFacing.UP);
             }
             if (count > 0)
@@ -146,16 +143,16 @@ public class BlockConveyorDetector extends BlockConveyor implements ITileEntityP
         }
     }
 
-    private int findMatchingItems(World world, BlockPos pos){
-        List<EntityItem> list = world.getEntitiesWithinAABB(EntityItem.class, FULL_BLOCK_AABB.offset(pos));
-        int count = 0;
-        for(EntityItem entity : list) {
-            if (!getTileEntity(world, pos).hasFilter() || getTileEntity(world, pos).matchesFilter(entity.getEntityItem())){
-                count += entity.getEntityItem().stackSize;
-            }
-        }
-        return count;
-    }
+//    private int findMatchingItems(World world, BlockPos pos){
+//        List<EntityItem> list = world.getEntitiesWithinAABB(EntityItem.class, FULL_BLOCK_AABB.offset(pos));
+//        int count = 0;
+//        for(EntityItem entity : list) {
+//            if (!getTileEntity(world, pos).hasFilter() || getTileEntity(world, pos).matchesFilter(entity.getEntityItem())){
+//                count += entity.getEntityItem().stackSize;
+//            }
+//        }
+//        return count;
+//    }
 
     @Override
     public IBlockState getStateFromMeta(int meta) {

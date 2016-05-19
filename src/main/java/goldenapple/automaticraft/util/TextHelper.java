@@ -19,7 +19,7 @@ public class TextHelper {
 
     public static void addLocalisedTooltip(List<String> tooltip, String string, Object... formatArgs){
         if(!I18n.canTranslate(string + ".1")) {
-            if(!I18n.canTranslate(string)) {
+            if(I18n.canTranslate(string)) {
                 tooltip.add(I18n.translateToLocalFormatted(string, formatArgs));
             }else {
                 tooltip.add(String.format(string, formatArgs));

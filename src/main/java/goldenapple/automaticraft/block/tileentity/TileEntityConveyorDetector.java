@@ -2,25 +2,43 @@ package goldenapple.automaticraft.block.tileentity;
 
 import goldenapple.automaticraft.reference.NBTTypes;
 import goldenapple.automaticraft.util.Filter;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 public class TileEntityConveyorDetector extends TileEntity{
     public int count = 0;
-    private Filter filter;
-    private ItemStack filterStack;
+    protected Filter filter;
+    protected ItemStack filterStack;
+    protected AxisAlignedBB itemSearchBB; //relative to the tile entity
 
-    public TileEntityConveyorDetector(Filter filterType){
+    public TileEntityConveyorDetector(Filter filterType, AxisAlignedBB itemSearchBB){
         super();
         this.filter = filterType;
+        this.itemSearchBB = itemSearchBB;
     }
 
     public TileEntityConveyorDetector(){
-        this(Filter.NORMAL);
+        this(Filter.NORMAL, Block.FULL_BLOCK_AABB);
+    }
+
+    public int findMatchingItems(World world){
+        List<EntityItem> list = world.getEntitiesWithinAABB(EntityItem.class, itemSearchBB.offset(getPos()));
+        int count = 0;
+        for(EntityItem entity : list) {
+            if (!hasFilter() || matchesFilter(entity.getEntityItem())){
+                count += entity.getEntityItem().stackSize;
+            }
+        }
+        return count;
     }
 
     public ItemStack getFilter(){

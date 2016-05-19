@@ -13,17 +13,19 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.List;
 
-public class ItemDebug extends Item{
+public class ItemDebug extends Item {
 
     public ItemDebug(){
         this.register(Names.DEBUG);
@@ -40,11 +42,11 @@ public class ItemDebug extends Item{
     public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
         if(!world.isRemote) {
             IBlockState state = world.getBlockState(pos);
-            player.addChatMessage(new TextComponentString(state.getBlock().getLocalizedName()).setChatStyle(new Style().setColor(TextFormatting.GOLD)));
-            player.addChatMessage(new TextComponentString("Registry name: " + state.getBlock().getRegistryName()));
-            player.addChatMessage(new TextComponentString("Metadata: " + state.getBlock().getMetaFromState(state)));
-            player.addChatMessage(new TextComponentString("XYZ hit: " + hitX + " " + hitY + " " + hitZ));
-            player.addChatMessage(new TextComponentString("-----------------------------").setChatStyle(new Style().setColor(TextFormatting.GOLD)));
+            TextHelper.addChatMessage(player, new Style().setColor(TextFormatting.GOLD), state.getBlock().getLocalizedName());
+            TextHelper.addChatMessage(player, "Registry name: %s", state.getBlock().getRegistryName());
+            TextHelper.addChatMessage(player, "Metadata: %s", state.getBlock().getMetaFromState(state));
+            TextHelper.addChatMessage(player, "XYZ hit: %s %s %s", hitX, hitY, hitZ);
+            TextHelper.addChatMessage(player, new Style().setColor(TextFormatting.GOLD), "------------------------------");
         }
         return EnumActionResult.SUCCESS;
     }
@@ -78,7 +80,7 @@ public class ItemDebug extends Item{
         Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(slot, stack);
         if (slot == EntityEquipmentSlot.MAINHAND){
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 9000D, 0));
-            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", 0D, 0));
+            multimap.put(SharedMonsterAttributes.ATTACK_SPEED.getAttributeUnlocalizedName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", 1.0D, 0));
         }
         return multimap;
     }
